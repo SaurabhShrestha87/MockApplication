@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="tripPoint"
+            type="com.example.myapplication.sync.domain.TripPoint" />
+
+        <variable
+            name="route"
+            type="com.example.myapplication.sync.domain.TripPoint" />
+
+        <variable
+            name="videoCallback"
+            type="com.example.myapplication.sync.ui.VideoClick" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:onClick="@{() -> videoCallback.onClick(tripPoint)}"
+            android:orientation="vertical"
+            app:backgroundByStatus="@{route.status}">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="4dp"
+                android:maxLines="1"
+                android:text='@{String.valueOf(tripPoint.lat) + " - " + String.valueOf(tripPoint.lng)}'
+                android:textAllCaps="false"
+                android:gravity="center"
+                android:textColor="@color/text_black"
+                android:textStyle="bold"
+                tools:text="LatLong" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="false"
+                    android:cropToPadding="false"
+                    android:gravity="center"
+                    android:hint="Index"
+                    android:scaleType="centerCrop"
+                    android:text='@{" INDEX : " + String.valueOf(tripPoint.tripPointIndex)}'
+                    android:textAlignment="center"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="false"
+                    android:cropToPadding="false"
+                    android:gravity="center"
+                    android:scaleType="centerCrop"
+                    android:text='@{" STATUS : " + String.valueOf(route.status)}'
+
+                    android:textAlignment="center"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

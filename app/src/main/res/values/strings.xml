@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Mock Application</string>
+    <string name="welcome">Welcome</string>
+    <string name="trip">Trip</string>
+    <string name="enter">Enter</string>
+    <string name="custom_notification_channel_name">Trackspot</string>
+    <string name="custom_notification_channel_id">mock_trackspot</string>
+    <string name="custom_notification_channel_description">Notification for mock location</string>
+    <string name="logout">LOGOUT</string>
+</resources>
